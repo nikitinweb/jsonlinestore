@@ -9,7 +9,8 @@ window.addEventListener('DOMContentLoaded', () => {
 		confirm = document.querySelector('.confirm'),
 		badge = document.querySelector('.nav__badge'),
 		totalCost = document.querySelector('.cart__total > span'),
-		titles = document.querySelectorAll('.goods__title');
+		titles = document.querySelectorAll('.goods__title'),
+		empty = cartWrapper.querySelector('.empty');
 
 	function openCart() {
 		cart.style.display = 'block';
@@ -28,8 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		btn.addEventListener('click', () => {
 			let item = products[i].cloneNode(true),
 				triger = item.querySelector('button'),
-				removeBtn = document.createElement('div'),
-				empty = cartWrapper.querySelector('.empty');
+				removeBtn = document.createElement('div');
 
 			triger.remove();
 
@@ -86,8 +86,6 @@ window.addEventListener('DOMContentLoaded', () => {
 	function calcGoods() {
 		const items = cartWrapper.querySelectorAll('.goods__item');
 		badge.textContent = items.length;
-
-		let empty = cartWrapper.querySelector('.empty');
 
 		if (items.length == 0) empty.style.display = 'block';
 	}
